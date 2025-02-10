@@ -11,7 +11,7 @@
 #Bandwidth limit for ssh on 10.2.2.30
 #pipe 2 to configured with bw(bandwidth) 10Kbytes
 #00010 is rule number
-
+#keep-state maintain birdectional traffic state
 
 /sbin/ipfw add 00010 pipe 2 ip from 10.2.2.20 any to 10.2.2.30/32 22 keep-state
 /sbin/ipfw pipe 2 config bw 10Kbytes
