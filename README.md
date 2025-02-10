@@ -1,4 +1,4 @@
-To enable firewall using ipfw on freebsd 14.2 with ssh traffic should have certain limit of bandwidth with allow some traffic only, we use ipfw setup on freebsd
+To enable firewall using ipfw on freebsd 14.2 with ssh traffic should have certain limit of bandwidth with allow some traffic only, I used ipfw setup on freebsd
 
 login as root user
 
