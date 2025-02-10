@@ -5,7 +5,6 @@ login as root user
 First step is in check that your kernel has below thing?
 
 test@freebsd14-2:~ $ sudo sysctl kern.conftxt |grep -i -e altq -e dummynet
-
 options ALTQ_PRIQ
 options ALTQ_CDNR
 options ALTQ_HFSC
@@ -16,14 +15,13 @@ options ALTQ
 options DUMMYNET
 
 Check dummynet is loaded or not
-test@freebsd14-2:~/project-ipfw-dummynet-altq $ kldstat -v |grep -i dummynet
 
+test@freebsd14-2:~/project-ipfw-dummynet-altq $ kldstat -v |grep -i dummynet
 415 dummynet
 
 
-If above both are missing then compile kernel to have support of module
-
-dummynet and ALTQ (actually in this example dummynet only required), 
+If above both are missing then compile kernel to have support of module dummynet and ALTQ (actually in this example dummynet only required)
+ 
 Now Check file 01-kernel-compile.txt and follow it
 
 If above both present then follow 03-step-to-enable-ipfw.txt
