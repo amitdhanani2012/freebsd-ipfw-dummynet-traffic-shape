@@ -1,0 +1,14 @@
+include GENERIC
+ident MYKERNEL
+
+options         IPFIREWALL
+options         DUMMYNET
+options         IPFIREWALL_DEFAULT_TO_ACCEPT
+options         IPDIVERT
+options         ALTQ
+options         ALTQ_CBQ
+options         ALTQ_RED
+options         ALTQ_RIO
+options         ALTQ_HFSC
+options         ALTQ_CDNR
+options         ALTQ_PRIQ

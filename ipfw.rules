@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Flush out the list before we begin. Emptying rules
+/sbin/ipfw -q -f flush
+  
+
+
+
+#Rules are add to pipe 2 for ssh traffic to use perticular bandwidth(10Kbytes = 10Kbytes per second)
+#Here 10.2.2.20 is my freebsd machine which to do ssh to 10.2.2.30 
+#Bandwidth limit for ssh on 10.2.2.30
+#pipe 2 to configured with bw(bandwidth) 10Kbytes
+#00010 is rule number
+
+
+/sbin/ipfw add 00010 pipe 2 ip from 10.2.2.20 any to 10.2.2.30/32 22 keep-state
+/sbin/ipfw pipe 2 config bw 10Kbytes
+
+# Interface allowed are lo0(loop back),em0, em1, em3 is using pipe3
+# default rule is deny from all
+
+/sbin/ipfw -q add 00012 allow all from any to any via lo0
+/sbin/ipfw -q add 00020 allow all from any to any via em0
+/sbin/ipfw -q add 00030 allow all from any to any via em1
+

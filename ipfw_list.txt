@@ -1,0 +1,7 @@
+test@freebsd14-2:~/project-ipfw-dummynet-altq $ sudo ipfw list
+Password:
+00010 pipe 2 ip from 10.2.2.20 to 10.2.2.30 22 keep-state :default
+00012 allow ip from any to any via lo0
+00020 allow ip from any to any via em0
+00030 allow ip from any to any via em1
+65535 deny ip from any to any

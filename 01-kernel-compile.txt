@@ -1,0 +1,32 @@
+# example kernel file MYKERNEL is present in this repository
+
+#kernel config
+#Backup kernel config 
+cp /usr/src/sys/amd64/conf/GENERIC /root/GENERIC-bk
+
+#Create /usr/src/sys/amd64/conf/MYKERNEL
+
+#Change below in MYKERNEL
+include GENERIC
+ident MYKERNEL
+
+options         IPFIREWALL
+options         DUMMYNET
+options         IPFIREWALL_DEFAULT_TO_ACCEPT
+options         IPDIVERT
+options         ALTQ
+options         ALTQ_CBQ
+options         ALTQ_RED
+options         ALTQ_RIO
+options         ALTQ_HFSC
+options         ALTQ_CDNR
+options         ALTQ_PRIQ
+
+#compile kernel and install kernel
+cd /usr/src
+make buildkernel KERNCONF=MYKERNEL
+make installkernel KERNCONF=MYKERNEL
+
+#old kernel will be at 
+/boot/kernel.old/kernel
+

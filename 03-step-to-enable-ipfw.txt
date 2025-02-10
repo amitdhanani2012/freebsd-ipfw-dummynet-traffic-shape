@@ -1,0 +1,22 @@
+#step to enable ipfw using root user
+sysrc firewall_enable="YES"
+sysrc firewall type="open"
+sysrc firewall_script="/etc/ipfw.rules"
+sysrc firewall_logging="YES"
+echo "net.inet.ip.fw.verbose_limit=5" >> /etc/sysctl.conf
+sysrc firewall_logif="YES" 
+
+#Default rule to deny put below in /boot/loader.conf
+net.inet.ip.fw.default_to_accept="0"
+
+#rules are in /etc/ipfw.rules with ipfw command
+
+# TO check packet flow in which rule use ipfw show
+
+# TO check rules run ipfw list
+
+# check dummynet is loaded or not
+test@freebsd14-2:~/project-ipfw-dummynet-altq $ kldstat -v |grep -i dummy
+415 dummynet
+
+
